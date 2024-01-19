@@ -1,0 +1,915 @@
+@import "~bootstrap/scss/bootstrap";
+
+:root {
+  --font-primary: 'Poppins', Arial, sans-serif;
+  --primary: #2a2a2a;
+  --primary-light: rgb(77, 77, 77);
+  --secondary: rgb(0, 101, 148);
+  --secondary-fade: rgba(0, 101, 148, 0.555);
+  --alt: rgb(255, 255, 253);
+  --nice-light: rgba(218, 241, 255, 0.865);
+  --lighter-hover-color: rgb(222, 222, 222);
+  --font-color: white;
+  --dropdownColor: #333333;
+}
+
+$font-primary: 'Poppins', Arial, sans-serif;
+$primary: #2a2a2a;
+$primaryLight: rgb(77, 77, 77);
+$secondary: rgb(0, 101, 148);
+$secondaryFade: rgb(0, 101, 148, 0.555);
+$alt: rgb(255, 255, 253);
+$niceLight: rgba(218, 241, 255, 0.865);
+$lighterHoverColor: rgb(222, 222, 222);
+
+body {
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: normal;
+  background: var(--primary);
+  transition: all 1s;
+  color: var(--font-color);
+  caret-color: transparent;
+  $font-family-sans-serif: // Safari for OS X and iOS (San Francisco)
+    -apple-system,
+    // Chrome < 56 for OS X (San Francisco)
+    BlinkMacSystemFont,
+    // Windows
+    "Segoe UI",
+    // Android
+    "Roboto",
+    // Basic web fallback
+    "Helvetica Neue", Arial, sans-serif,
+    // Emoji fonts
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+}
+
+//--------ADD BLACK TEXT-CARET
+#sales-tax-input,
+.form-control {
+  caret-color: black;
+}
+
+#page-state {
+  display: none;
+}
+
+#form-container {
+  margin-top: 4%
+}
+
+
+
+//CREATE/EDIT CUSTOMER FORM
+.customer-form-card {
+  display: flex;
+  color: rgb(103, 103, 103);
+  font-family: sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white !important;
+  width: 43rem;
+  border-radius: 1%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-bottom: 4%;
+  padding: 1rem
+}
+
+.customer-view-card {
+  color: var(--font-color);
+  font-family: sans-serif;
+  border: 1px solid var(--primary-light);
+  border-radius: 1%;
+  transition: all 1s;
+
+}
+
+.customer-address-info2 {
+  margin-top: 18px;
+}
+
+.customer-edit-button-row {
+  display: flex;
+  align-items: flex-end;
+}
+
+#single-customer-action-row {
+  margin-bottom: 4%;
+}
+
+.customer-horizontal-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 15%;
+  white-space: nowrap;
+  margin-left: 2%;
+  padding: 3%;
+  width: 100%;
+}
+
+.shipping-address-info {
+  display: flex;
+  color: rgb(103, 103, 103);
+  font-family: sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  width: 40rem;
+  border-radius: 1%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-bottom: 4%;
+}
+
+.customer-choice {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.form-select {
+  background-color: var(--primary);
+  transition: all 1s;
+}
+
+.form-select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 6%
+}
+
+.form-group {
+  margin-left: 4%
+}
+
+.long-input {
+  width: 13rem;
+}
+
+.form-info-header {
+  color: rgb(0, 0, 0);
+  margin-top: 4%;
+  margin-left: 4%;
+  font-size: 18px;
+}
+
+input,
+label {
+  display: block;
+}
+
+label {
+  margin-left: 3px;
+}
+
+.horizontal-container {
+  display: flex;
+}
+
+#center-container {
+  margin-left: 3%;
+  margin-right: 3%
+}
+
+#shippingInfo:empty {
+  display: none
+}
+
+//CUSTOMER TABLE
+
+#customersTable {
+  background-color: var(--primary);
+  transition: all 1s;
+}
+
+th {
+  width: 200px;
+}
+
+.customer-table-name {
+  column-width: 15%
+}
+
+//TOP BAR
+.header-link {
+  color: var(--font-color);
+  font-size: 14px;
+}
+
+// #top-bar {
+//   // width: auto;
+// }
+
+.top-bar-list {
+  font-size: 12pt;
+  list-style-type: none;
+  display: flex;
+  gap: 4%;
+  white-space: nowrap;
+}
+
+.top-bar-link {
+  color: var(--font-color);
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 1s;
+}
+
+#top-bar,
+#mid-bar {
+  min-height: 1px;
+  display: flex;
+  gap: 8%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  padding-bottom: 1%;
+  border-bottom: 1px solid var(--font-color);
+  transition: all 1s;
+}
+
+#mid-bar:empty {
+  display: none;
+}
+
+.top-bar:empty {
+  display: none;
+}
+
+//SINGLE INVOICE
+.invoice-customer-info {
+  width: auto;
+  padding-top: 2%;
+  padding-bottom: 2%
+}
+
+.invoice-group {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+#low-center {
+  border-top: 1px solid white;
+  margin-top: 4%;
+  margin-bottom: 4%
+}
+
+#low-center:empty {
+  border-top: none;
+  margin-top: none;
+  padding-top: none;
+}
+
+//MIDBAR
+
+.btn.btn-secondary {
+  color: var(--font-color);
+  background-color: var(--primary-light);
+  transition: all 1s;
+}
+
+.btn-secondary.dropdown-toggle {
+  background: var(--primary);
+  border: none;
+  transition: all 1s;
+}
+
+.btn.btn-secondary:hover {
+  background-color: var(--secondary-fade)
+}
+
+.dropdown-item:hover {
+  background-color: var(--secondary-fade)
+}
+
+.btn.btn-light {
+  background-color: transparent;
+  border: none;
+  color: var(--font-color);
+}
+
+.btn.btn-light:hover {
+  background-color: var(--primary-light);
+  border: none;
+  transition: all ease .3s;
+}
+
+.btn.btn-dark {
+  background-color: var(--primary-light);
+  transition: all 1s;
+  border: none;
+  color: var(--font-color)
+}
+
+
+//SIDE BAR ALL
+a {
+  transition: .3s all ease;
+  color: var(--primary);
+  transition: color 1s;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--secondary-fade);
+  }
+
+  &:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none;
+  }
+}
+
+button {
+  transition: .3s all ease;
+
+  &:hover,
+  &:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: $font-primary;
+
+  color: $black;
+  text-decoration: none;
+}
+
+
+.ftco-section {
+  padding: 7em 0;
+}
+
+.ftco-no-pt {
+  padding-top: 0;
+}
+
+.ftco-no-pb {
+  padding-bottom: 0;
+}
+
+//HEADING SECTION
+.heading-section {
+  font-size: 28px;
+  color: $black;
+
+  small {
+    font-size: 18px;
+  }
+}
+
+//COVER BG
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #ddd;
+  margin: 40px 0;
+}
+
+
+//SIDEBAR
+.wrapper {
+  width: 100%;
+}
+
+#sidebar {
+  min-width: 200px;
+  max-width: 200px;
+  background: var(--primary);
+  transition: all 1s;
+  color: var(--font-color);
+  // transition: all 0.3s;
+
+  &.active {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+
+    ul.components {
+      li {
+        font-size: 14px;
+
+        a {
+          padding: 10px 0;
+
+          span {
+            margin-right: 0;
+            display: block;
+            font-size: 24px;
+          }
+        }
+      }
+    }
+
+    .logo {
+      padding: 10px 0;
+    }
+
+    .footer {
+      display: none;
+    }
+  }
+
+  .logo {
+    display: block;
+    color: var(--font-color);
+    transition: color 1s;
+    font-weight: 900;
+    padding: 10px 30px;
+    @include transition(.3s);
+  }
+
+  ul.components {
+    padding: 0;
+    @include transition(.3s);
+  }
+
+  ul {
+    li {
+      font-size: 16px;
+
+      >ul {
+        margin-left: 10px;
+
+        li {
+          font-size: 14px;
+        }
+      }
+
+      a {
+        padding: 10px 30px;
+        display: block;
+        color: var(--font-color);
+        border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+        a:empty {
+          border: none
+        }
+
+        span {
+          margin-right: 15px;
+
+          @include media-breakpoint-down(md) {
+            display: block;
+          }
+        }
+
+        &:hover {
+          color: var(--font-color);
+        }
+      }
+
+      &.active {
+        >a {
+          background: transparent;
+          color: var(--font-color);
+          transition: all 1s;
+        }
+      }
+    }
+  }
+
+  ul.dropdown-menu.dropdown-menu-dark {
+    background-color: var(--dropdownColor);
+    transition: all 1s;
+  }
+
+
+  @include media-breakpoint-down(md) {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    margin-left: -20px !important;
+
+    &.active {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+#sidebarCollapse {
+  span {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+}
+
+.footer {
+  padding: 0 30px;
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+#content {
+  width: 100%;
+  padding: 0;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+a#dropdownUser1,
+a#dropdownUser1 * {
+  color: var(--font-color);
+  transition: all 1s;
+}
+
+#dropdownUser1::after {
+  color: var(--font-color);
+  transition: all 1s;
+}
+
+.btn.btn-info {
+  background-color: $secondary;
+  color: white;
+  border: none
+}
+
+.btn.btn-secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn.btn-secondary {
+  background-color: var(--primary);
+  // transition: background-color 1s;
+  transition: all 1s;
+  border: none;
+
+  :hover {
+    background-color: var(--secondary-fade);
+  }
+}
+
+.btn.btn-danger {
+  border: none;
+}
+
+.btn {
+  &.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    transition: all 1s;
+
+
+    &:hover,
+    &:focus {
+      background: var(--primary) !important;
+      transition: all 1s;
+      border-color: var(--primary) !important;
+    }
+  }
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+// invoice table------------>
+#invoicesTable,
+#customersTable {
+  background-color: var(--primary);
+  transition: all 1s;
+  table-layout: fixed;
+  white-space: nowrap;
+  color: var(--font-color);
+}
+
+td,
+th {
+  border-bottom: 1px solid rgba(149, 157, 165, 0.2);
+}
+
+#invoicesTable tr:not(:first-child) td,
+#customersTable tr:not(:first-child) th {
+  padding-left: 15px
+}
+
+#invoice-table-header,
+#customers-table-header {
+  background-color: var(--primary-light);
+  transition: all 1s;
+  border: none
+}
+
+#invoicesTable tr:not(#invoice-table-header):hover,
+#customersTable tr:not(#customers-table-header):hover {
+  background-color: var(--secondary-fade);
+  transition: all .6s ease;
+}
+
+.invoice-table-style {
+  color: var(--font-color);
+  background-color: var(--primary);
+  transition: all 1s;
+}
+
+.table-item {
+  color: var(--font-color);
+}
+
+.table-item:hover {
+  background-color: var(--primary-light);
+  transition: all .3s ease;
+}
+
+
+
+
+//INVOICE FORM---------------->
+.payment-terms-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#products-table-view-invoice {
+  table-layout: fixed;
+  background-color: rgba(218, 241, 255, 0.865);
+  print-color-adjust: exact;
+  min-width: 430px;
+  width: 100%;
+  caret-color: black;
+}
+
+#products-table-view-invoice:hover {
+  background-color: none;
+}
+
+
+// --------------------------->
+// INVOICE PREVIEW
+#oldBodyTag {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 48px;
+  background-color: black;
+}
+
+.printable-body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 12pt;
+}
+
+.top-container {
+  position: relative;
+  margin-top: 4%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 4%;
+  height: 14%;
+  line-height: 150%;
+}
+
+#invoice-customer-info-container {
+  background-color: rgba(218, 241, 255, 0.865);
+  height: 17%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4%;
+  line-height: 150%;
+  white-space: nowrap;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.logo-image {
+  position: absolute;
+  left: 75%;
+  top: 1%
+}
+
+.invoice-table-container {
+  display: block;
+  gap: 4%;
+  white-space: nowrap;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.INVOICE {
+  color: rgb(2, 121, 185);
+  margin-top: 5%;
+  margin-bottom: 2.3%;
+  font-size: 27px;
+}
+
+.top-user-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  white-space: nowrap;
+  gap: 4%;
+}
+
+.user-company-name-invoice {
+  font-weight: bold;
+  color: black;
+}
+
+.user-company-info2 {
+  font-weight: bold;
+  color: black;
+}
+
+.align-left {
+  text-align: left;
+  line-height: 400%;
+}
+
+.align-right {
+  text-align: right;
+  line-height: 400%;
+}
+
+.totals {
+  display: block;
+}
+
+.sub-total {
+  color: rgb(101, 101, 101);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.total {
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#memo {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  white-space: nowrap;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 3%;
+}
+
+.user-contact-info {
+  color: rgb(101, 101, 101);
+  margin-bottom: none;
+  font-size: 16px;
+}
+
+#service-header {
+  font-weight: 540;
+  font-size: 16pt;
+  color: rgb(101, 101, 101);
+  padding-bottom: .5%;
+  margin-bottom: 3%;
+  border-bottom: 1px solid rgb(101, 101, 101);
+}
+
+#notes-header {
+  font-weight: 500;
+  color: rgb(101, 101, 101);
+  margin-bottom: 2%;
+}
+
+#userInvoiceNotes {
+  height: 90%;
+}
+
+#memo-header {
+  font-weight: 500;
+  color: rgb(101, 101, 101);
+}
+
+.form-control {
+  border: 1px solid rgba(218, 241, 255, 0.865);
+  background: white;
+}
+
+:disabled {
+  background: white !important;
+}
+
+#total-amount-info {
+  display: grid;
+  height: 17%;
+  grid-template-columns: 2fr 1fr;
+  gap: 10%;
+  white-space: nowrap;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+@media print {
+  #invoice-customer-info-container {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #products-table-view-invoice {
+    background-color: rgba(218, 241, 255, 0.865);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+//------------------->
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
